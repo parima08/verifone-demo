@@ -1,0 +1,110 @@
+body{
+	font-family: 'Source Sans Pro', sans-serif; 
+}
+
+section{
+  width: 854px;
+  height: 480px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.home{
+	background:  linear-gradient(
+      rgba(0,0,0,.5), 
+      rgba(0,0,0,.5)
+    ), url('img/coffee-bg.png');
+
+}
+
+.top-nav{
+	height: 87px;
+	width: 100%;
+	background-color: rgba(0,0,0,.6);
+	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+	position: relative;
+}
+
+.main-content{
+	height: calc(100% - 87px);
+	width: 100%;
+	display: -webkit-flex;
+}
+
+.calc{
+	height: 87px;
+	width: 87px;
+	background-color: rgba(255, 255, 255, .2);
+	position: relative;
+	left: 0;
+}
+
+.calc-icon{
+	width: 38px;
+	height: 50px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	right: 0;
+	left: 0;
+	margin: auto;
+	background: url('img/calc-icon.png');
+}
+
+.logo{
+	background: url('img/verifone-logo.png');
+	width: 190px;
+	height: 37px;
+	align-self: center;
+	display: inline-block;
+	position: absolute;
+	right: 0;
+	left: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+.application-display {
+	width: 748px;
+	height: 305px;
+	/*padding: 20px;*/
+	margin: auto;
+	box-sizing: border-box;
+/*	background-color: blue;*/
+	display: -webkit-flex;
+	align-content: space-around;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.app-button{
+	width: 170px;
+	height: 135px;
+	background: #FFFFFF;
+	box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.50);
+	display: -webkit-flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.app-icon{
+	width: 60px;
+	height: 60px;
+	background-color: blue;
+}
+
+.app-title{
+	height: 30px;
+	font-size: 16px;
+}
+
+
+
+
