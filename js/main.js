@@ -29,7 +29,7 @@ $(document).ready(function(){
             	.fromTo(".main-content.first", .75, {x: "0%"}, {x: "-100%"})
             	.set(".main-content.first", {css:{className:'main-content first hide'}})
             	.set(".main-content.second", {css:{className:'main-content second active'}})
-            	.fromTo(".main-content.second", .75, {x: "100%"}, {x: "0%"});
+            	.fromTo(".main-content.second", .75, {x: "80%"}, {x: "0%"},"-=.75");
          	console.log("end of dragAnimation")
         }
     });
