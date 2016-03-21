@@ -21,11 +21,20 @@ $(document).ready(function(){
 		$(this).parent().addClass("active");
 		var target_index = $(this).parent().index();
 		
-		//console.log( "index: " + current_index + " target_index " + target_index);
 		from_percenage = (current_index * -33.33).toString() + "%"
 		to_percenage = (target_index * -33.33).toString() + "%"
 		var moveContent = new TimelineMax()
 			.fromTo(".main-content-container", 1, {x: from_percenage}, {x: to_percenage});
+	});
+
+	$(".app-button.pos").on("click", function(){
+		var active_main_content = $(this).parent().parent(".main-content");
+		var moveOut = new TimelineMax()
+			.fromTo(".clicked-obj", .25, {scale: 0}, {scale: 1})
+			.fromTo(active_main_content, .5, {scale: 1}, {scale: 0})
+			.fromTo(".bottom-nav.dots", .5, {opacity: 1}, {opacity: 0}, "-=.5")
+			.fromTo(".logo", .5, {y: "0%"}, {y: "-100%"}, "-=.5")
+			.fromTo(".calc", .5, {x: "0%"}, {x: "-100%"}, "-=.5");
 	});
 
 	// $(".main-content.active").mousedown(function() {
