@@ -12,6 +12,10 @@ $(document).ready(function(){
 			.fromTo(".calc", .5, {x: "-100%"}, {x: "0%"})
 			.fromTo(".bottom-nav.dots", .5, {y: "100%"}, {y: "0%"}, "-=.5");
 
+	var posStart = new TimelineMax()
+			.fromTo( ".top-nav", .75, {y: "-100%"}, {y: "0%"})
+			.fromTo(".pos-list", 1, {scale: 0}, {scale: 1}, "-=.5");
+
 	var isDragging = false;
 
 	$(".bottom-nav li a").on("click", function(){
@@ -33,9 +37,17 @@ $(document).ready(function(){
 			.fromTo(".clicked-obj", .25, {scale: 0}, {scale: 1})
 			.fromTo(active_main_content, .5, {scale: 1}, {scale: 0})
 			.fromTo(".bottom-nav.dots", .5, {opacity: 1}, {opacity: 0}, "-=.5")
-			.fromTo(".logo", .5, {y: "0%"}, {y: "-100%"}, "-=.5")
-			.fromTo(".calc", .5, {x: "0%"}, {x: "-100%"}, "-=.5");
+			.fromTo(".logo", .5, {y: "0%"}, {y: "-200%"}, "-=.5")
+			.fromTo(".calc", .5, {x: "0%"}, {x: "-100%"}, "-=.5")
+			.add( movePosIn );
 	});
+
+	$(".pos-sale").on("click", function(){
+		var moveToAmount = new TimelineMax()
+			.fromTo(".clicked-pos-type", .25, {scale: 0}, {scale: 1})
+			.fromTo(".pos-list", .5, {x: "0%"}, {x: "-120%"})
+			.fromTo(".sale-container", .5, {x: "0%"}, {x: "-100%"}, "-=.5");
+	})
 
 	// $(".main-content.active").mousedown(function() {
 	// 	console.log("mousedown");
@@ -58,3 +70,11 @@ $(document).ready(function(){
  //        }
  //    });
 });
+
+
+function movePosIn(){
+	var choiceListMoveIn = new TimelineMax()
+		.set("section.pos-selection", {css: {className: "+=active"}})
+		.fromTo(".pos-list", .5, {scale: 0}, {scale: 1}, "-=.5")
+		.fromTo(".top-nav", .5, {y: "-100%"}, {y: "0%"}, "-=.5");			
+}

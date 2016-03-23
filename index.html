@@ -21,7 +21,7 @@
   </head>
   <body>
     <main>
-      <section class="home">
+      <section class="home active">
         <div class ="top-nav">
           <div class = "calc">
             <div class = "calc-icon"></div>
@@ -147,6 +147,38 @@
             </ul>
           </div>
       </section>
+       <section class="pos-selection active">
+          <div class ="top-nav">
+            <div class = "back-btn"><img src="img/back-icon.png" /></div>
+            <div class = "section-title">POS</div>
+            <div class = "home-btn"><img src="img/home-button.png" /></div>
+          </div>
+          <div class="pos-list">
+            <ul class="pos-options">
+              <a class = "pos-sale"><li>
+                <div class="pos-list-text">Sale</div>
+                <div class="right-pointer"></div>
+                <div class = "clicked-pos-type"></div>
+              </li></a>
+              <a><li>
+                <div class="pos-list-text">Sale + Cash</div>
+                <div class="right-pointer"></div>
+              </li></a>
+              <a><li>
+                <div class="pos-list-text">Cash Advance</div>
+                <div class="right-pointer"></div>
+              </li></a>
+             <a><li>
+                <div class="pos-list-text">Refund</div>
+                <div class="right-pointer"></div>
+              </li></a>
+            </ul>
+          </div>
+          <div class = "sale-container">
+            <div class = "sale-input">
+            </div>
+          </div>
+       </section>
     </main>    
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="js/jquery-1.12.2.min.js"></script>

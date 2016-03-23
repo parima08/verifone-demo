@@ -3,6 +3,11 @@ body{
 }
 
 section{
+	display: none;
+}
+
+section.active{
+  display: block;
   width: 854px;
   height: 480px;
   position: absolute;
@@ -14,13 +19,15 @@ section{
   overflow: hidden;
 }
 
-.home{
+.home, .pos-selection{
 	background:  linear-gradient(
       rgba(0,0,0,.5), 
       rgba(0,0,0,.5)
     ), url('img/coffee-bg.png');
 
 }
+
+
 
 .top-nav{
 	height: 87px;
@@ -121,6 +128,16 @@ section{
 	background-color: rgba(0, 168, 239, .5);
 }
 
+.clicked-pos-type{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	background-color: rgba(0, 168, 239, .5);
+	transform: scale(0);
+}
+
+
 .app-icon{
 	width: 60px;
 	height: 60px;
@@ -184,5 +201,123 @@ section{
 }
 
 
+/********** POS SELECTION *********************/
 
+.back-btn{
+	height: 30px;
+	width: 30px;
+	position: absolute;
+	left: 20px;
+	top: 30px;
+	display: inline;
+	align-self: flex-start;
+	/*top: 0;
+	bottom: 0;
+	margin-top: auto;
+	margin-bottom: auto;*/
+}
 
+.section-title{
+	diplay: inline;
+	color: white;
+	position: absolute;
+	width: 100px;
+	height: 87px;
+	font-size: 40px;
+	font-weight: 700;
+	height: 50px;
+	text-align: center;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+}
+
+.home-btn{
+	height: 40px;
+	width: 40px;
+	top: 20px;
+	display: inline;
+	position: absolute;
+	right: 20px;
+}
+
+.pos-selection .pos-list{
+	width: 80%;
+	height: 80%;
+	position: relative;
+	margin: auto;
+	scale: 1;
+}
+
+.pos-list ul{
+	margin: auto;
+	padding: 0;
+	list-style: none;
+	box-sizing: border-box;
+	position: relative;
+}
+
+.pos-list ul a{
+	cursor: pointer;
+}
+
+.pos-list ul li{
+	box-sizing: border-box;
+	width: 100%;
+	height: 80px;
+	margin-bottom: 7px;
+	background-color: white;
+	font-size: 24px;
+	position: relative;
+}
+
+.pos-list ul li p{
+	/*margin-left: 20px;*/
+	font-size: 24px;
+}
+
+.pos-list-text{
+	width: 80%;
+	padding-left: 20px;
+	padding-top: 25px;
+	position: relative;
+}
+
+.right-pointer{
+	position: absolute;
+	right: 10px;
+	top: 0;
+	width: 15px;
+	height: 80px;
+/*	background-color: red;*/
+	background-image: url("img/right-pointer.png");
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: center;
+}
+
+.sale-container{
+	/*background-color: blue;*/
+	position: absolute;
+	height: calc(100% - 87px);
+	width: 100%;
+	top: 87px;
+	left: 100%;
+}
+
+.sale-input{
+	position: absolute;
+	height: 98px;
+	width: 501px;
+	background-color: white;
+	/* Rectangle 62: */
+	background: rgba(255,255,255,0.95);
+	/* Rectangle 167 Copy: */
+	font-size: 24px;
+	color: #000000;
+	line-height: 41px;
+	top: 0; bottom: 0; right: 0; left: 0;
+	margin: auto;
+}
