@@ -49,6 +49,36 @@ $(document).ready(function(){
 			.fromTo(".sale-container", .5, {x: "0%"}, {x: "-100%"}, "-=.5");
 	})
 
+	$('.sale-input').on("click", function(){
+		var transformCalc = new TimelineMax()
+			.fromTo(".clicked-pos-sale", .25, {scale: 0}, {scale: 1})
+			.set(".clicked-pos-sale", {scale: 0})
+			.set(".sale-input-form", {css: {className: "+=active"}})
+			.set(".sale-input", {css: {className: "+=inactive"}})
+			.fromTo(".sale-input-form", 1, {bottom: "0" }, {top: "0px", bottom: "120%", width: "100%"})
+			.set(".calculator",  {css: {className: "+=active"}}, "-=1")
+			.fromTo(".calculator", 1, {y: "100%"}, {y: "0%"}, "-=1");
+	});
+
+	$(".calculator span").on("click", function(){
+		var input = $(".sale-input-form .result");
+		var btnVal = $(this).data("value");
+		scaleEl = $(this).children(".clicked-key-value");
+		var clickedScale = new TimelineMax()
+			.fromTo(scaleEl, .25, {scale: 0}, {scale: 1})
+			.set(scaleEl, {scale: 0});
+
+		console.log("input text: " + input.text() + " btnVal: " + btnVal);
+		switch(btnVal){
+			case "cancel":
+				break;
+			case "enter": 
+				break;
+			default:
+				input.append(btnVal);
+		}
+	});
+
 	// $(".main-content.active").mousedown(function() {
 	// 	console.log("mousedown");
  //        isDragging = false;

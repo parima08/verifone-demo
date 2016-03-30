@@ -1,5 +1,6 @@
 body{
 	font-family: 'Source Sans Pro', sans-serif; 
+	background-color: rgba(0, 0, 0, .6);
 }
 
 section{
@@ -128,7 +129,9 @@ section.active{
 	background-color: rgba(0, 168, 239, .5);
 }
 
-.clicked-pos-type{
+.clicked-pos-type,
+.clicked-pos-sale
+{
 	position: absolute;
 	width: 100%;
 	height: 100%;
@@ -136,6 +139,8 @@ section.active{
 	background-color: rgba(0, 168, 239, .5);
 	transform: scale(0);
 }
+
+
 
 
 .app-icon{
@@ -307,7 +312,8 @@ section.active{
 	left: 100%;
 }
 
-.sale-input{
+.sale-input,
+.sale-input-form{
 	position: absolute;
 	height: 98px;
 	width: 501px;
@@ -320,4 +326,89 @@ section.active{
 	line-height: 41px;
 	top: 0; bottom: 0; right: 0; left: 0;
 	margin: auto;
+	padding: 20px 30px;
+	box-sizing: border-box;
 }
+.sale-input-form{
+	display: none;
+}
+
+.sale-input-form.active{
+	display: block;
+	background: white;
+}
+
+.sale-input.inactive{
+	display: none;
+}
+
+.sale-input h3{
+	font-size: 24px;
+    font-weight: 400;
+    padding: 0;
+    margin: 0;
+}
+
+.sale-input .clicked-pos-sale{
+	left: 0;
+}
+
+.sale-input hr{
+	background-color: rgba(0, 168, 239, .5);
+	width: 100%;
+	height: 2px;
+}
+
+.calculator{
+	width: 100%;
+	height: calc(100% - 10px);
+	position: absolute;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, .6);
+	display: none;
+}
+
+.calculator.active{
+	display: block;
+}
+
+.calculator > span {
+	float:left;
+	cursor:pointer;
+	box-sizing: border-box;
+	width: 25%;
+	height: 25%;
+	font-size: 25px;
+	line-height: 90px;
+	color:#fff;
+	position: relative;
+	text-align:center;
+	user-select:none;
+	transition: background-color .2s ease;
+	border-right: 1px solid rgba(255,255,255,0.3);
+	border-bottom: 1px solid rgba(255,255,255,0.3);
+}
+
+.calculator span.clicked-key-value{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	transform: scale(0);
+	background-color: rgba(255, 255, 255, .5);
+	left: 0;
+}
+
+.calculator span:hover{
+
+}
+
+.calculator .cancel{
+	background-color: rgba(255, 255, 255, .88);
+	color: black;
+}
+
+.enter{
+	background-color: rgba(126, 211, 33, .85);
+}
+
