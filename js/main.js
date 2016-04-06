@@ -57,7 +57,12 @@ $(document).ready(function(){
 			.set(".sale-input", {css: {className: "+=inactive"}})
 			.fromTo(".sale-input-form", 1, {bottom: "0" }, {top: "0px", bottom: "120%", width: "100%"})
 			.set(".calculator",  {css: {className: "+=active"}}, "-=1")
-			.fromTo(".calculator", 1, {y: "100%"}, {y: "0%"}, "-=1");
+			.fromTo(".calculator", 1, {y: "100%"}, {y: "0%"}, "-=1")
+			.set(".sale-input-form .sale-clear", {css: {className: "+=active"}});
+	});
+
+	$(".sale-clear").on("click", function(){
+		$(".sale-input-form .result").text("");
 	});
 
 	$(".calculator span").on("click", function(){
@@ -73,11 +78,61 @@ $(document).ready(function(){
 			case "cancel":
 				break;
 			case "enter": 
+				var enterNewAmount = new TimelineMax()
+					.fromTo(".calculator", 1, {y: "0%"}, {y: "100%"})
+					.set(".sale-input-form .sale-clear", {css: {className: "-=active"}}, "0")
+					.to(".sale-input-form", 1, {bottom: 0, width: "501px"}, "0")
+					.fromTo(".bottom-controls", .5, {y: "0%"}, {y: "-100%"});
 				break;
 			default:
 				input.append(btnVal);
 		}
+
+
 	});
+
+	$(".bottom-controls .enter").on("click", function(){
+		var intructionText = new TimelineMax()
+			.fromTo(".enter .clicked-enter", .25, {scale: 0}, {scale: 1})
+			.fromTo('.bottom-controls .enter', 1, {x: "0%"}, {x: "100%"})
+			.fromTo('.bottom-controls .enter', .1, {opacity: 1}, {opacity: 0}, ".25")
+			.to('.bottom-controls .cancel', 1, {width: "101%"}, 0)
+			.to(".top-nav", 1, {opacity: 0}, 0)
+			.to(".sale-input-form",1, {opacity: 0}, 0)
+			.set("section.signature-slides", {css: {className: "+=active"}}, "1")
+			.from(".signature-tint", .5, {opacity: 0})
+			.from(".payment-icons", .5, {opacity: 0, ease:Power1.easeInOut}, "-=.5")
+			.from(".swipe", .5, {width: '0%', ease:Power1.easeInOut})
+			.from(".insert", .5, {opacity: 0, x: '100%', ease:Power1.easeInOut})
+			.from(".tap", .5, {opacity: 0, ease:Power1.easeInOut})
+			.to('.bottom-controls .cancel', .5, {width: "50%"}, "+=1")
+			.fromTo('.bottom-controls .signature-enter', .5, {x: "100%", display: "inline-block"}, {x: "0%"}, "-=.5")
+			.set(".signature-instructions", {css: {className: "+=inactive"}})
+			.set(".signature-line-container", {css: {className: "+=active"}})
+			.from(".signature-line", 1, {width: '0%'})
+			.fromTo(".sign-here", 1, {height: "0%"}, {height: "70px", opacity: 1})
+			.to(".sign-here", .5, {opacity: 0}, "+=.5");
+			//.to(".sign-here", .5, {opacity: 0}, "+=.5");
+	});
+
+	$(".bottom-controls .signature-enter").on("click", function(){
+		var animateEnter = new TimelineMax()
+			.fromTo(".signature-enter .clicked-enter", .25, {scale: 0}, {scale: 1})
+			.addCallback(reloadPage); 
+	});
+
+	// var signatureTimeline = new TimelineMax()
+	// 	.from(".swipe", .5, {width: '0%', ease:Power1.easeInOut})
+	// 	.from(".insert", .5, {opacity: 0, x: '100%', ease:Power1.easeInOut})
+	// 	.from(".tap", .5, {opacity: 0, ease:Power1.easeInOut})
+	// 	.to('.bottom-controls .cancel', .5, {width: "50%"})
+	// 	.fromTo('.bottom-controls .signature-enter', .5, {x: "100%", display: "inline-block"}, {x: "0%"}, "-=.5")
+	// 	.to(".signature-instructions", .5, {opacity: 0, display: "none"});
+
+	// var signHereTimeline = new TimelineMax()
+	// 	.from(".signature-line", 1, {width: '0%'})
+	// 	.from(".sign-here", 1, {height: "0%"})
+	// 	.to(".sign-here", .5, {opacity: 0}, "+=.5");
 
 	// $(".main-content.active").mousedown(function() {
 	// 	console.log("mousedown");
@@ -100,6 +155,27 @@ $(document).ready(function(){
  //        }
  //    });
 });
+
+function reloadPage(){
+	location.reload();
+}
+
+
+function clearProps(scene) {
+        var targets = scene.getChildren();
+        for (var i = 0; i <= targets.length; i++) {
+            TweenMax.set(targets[i].target.selector, {
+                clearProps: "all"
+            });
+        }
+}
+    
+// function clearAllProps() {
+//         var timeLines = [start, posStart, directSelect];
+//         for (var x = 0; x <= timeLines.length; x++) {
+//             clearProps(timeLines[x]);
+//         }
+// }
 
 
 function movePosIn(){

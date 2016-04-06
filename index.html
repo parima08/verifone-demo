@@ -12,12 +12,8 @@
     <!-- Bootstrap -->
     <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
     <link href="style.css" rel="stylesheet">
-    <link href=""
 
-
-    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:100, 200,400,600,300,400italic,300italic' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Inconsolata:400,700' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
   </head>
   <body>
     <main>
@@ -147,7 +143,7 @@
             </ul>
           </div>
       </section>
-       <section class="pos-selection active">
+       <section class="pos-selection">
           <div class ="top-nav">
             <div class = "back-btn"><img src="img/back-icon.png" /></div>
             <div class = "section-title">POS</div>
@@ -182,7 +178,7 @@
               </div>
               <div class = "sale-input-form">
                 <div class = "result"></div>
-                <div class = "sale-clear"></div>
+                <div class = "sale-clear">Clear</div>
               </div>
               <div class = "calculator">
                 <span data-value="1">1 <span class= "clicked-key-value"></span></span>
@@ -202,7 +198,59 @@
                 <span data-value="#">#<span class= "clicked-key-value"></span></span>
                 <span class = "enter" data-value="enter">Enter<span class= "clicked-key-value"></span></span>
               </div>
+              <div class = "bottom-controls">
+                <div class = "cancel">
+                  Cancel
+                </div>
+                <div class = "enter">
+                  Enter
+                  <div class = "clicked-enter"></div>
+                </div>
+              </div>
           </div>
+       </section>
+       <section class = "signature-slides">
+       <div class = "signature-tint">
+          <div class = "signature-instructions">
+            <div class = "payment-icons">
+              <ul class="payment-icons">
+                  <li class="creditcard">
+                    <img src="img/credit-cards.png" />
+                  </li>
+                  <li class="mobilephone">
+                    <img src="img/mobile-phone-icon.png" />
+                  </li>
+                  <li class="iwatch">
+                    <img src="img/iwatch.png" />
+                  </li>
+              </ul>
+            </div>
+            <div class = "sig-text-instructions">
+              <h2>
+                <div class = "swipe">
+                    Swipe,
+                </div> 
+                <div class = "insert"> Insert,</div>
+                <div class = "tap"> or Tap Payment</div>
+              </h2>
+            </div>
+          </div>
+          <div class = "signature-line-container">
+            <div class = "sign-here">
+              <h2>Great! Just sign and we're done.</h2>
+            </div>
+            <hr class = "signature-line left"/><hr class = "signature-line right"/>
+          </div>
+       </div>
+        <div class = "bottom-controls">
+         <div class = "cancel">
+            Cancel
+          </div>
+          <div class = "signature-enter">
+            Enter
+            <div class = "clicked-enter"></div>
+          </div>
+        </div>
        </section>
     </main>    
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
