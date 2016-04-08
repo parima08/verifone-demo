@@ -176,7 +176,9 @@ function swipeApplications(direction){
 	else{
 		target_index = current_index - 1
 	}
-	console.log("target_index: " + target_index);
+	if( (target_index > 2) || (target_index < 0)){
+		return;
+	}
 	$(".bottom-nav li").removeClass("active");
 	$(".bottom-nav li").eq(target_index).addClass("active");
 	from_percenage = (current_index * -33.33).toString() + "%";
