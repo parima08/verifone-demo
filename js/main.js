@@ -17,6 +17,13 @@ $(document).ready(function(){
 			.fromTo(".pos-list", 1, {scale: 0}, {scale: 1}, "-=.5");
 
 	var isDragging = false;
+	$(".main-content-container").on("swipeleft", function(){
+		swipeApplications("left");
+	});
+
+	$(".main-content-container").on("swiperight", function(){
+		swipeApplications("right")
+	});
 
 	$(".bottom-nav li a").on("click", function(){
 		//console.log("this is getting clicked");
@@ -25,8 +32,8 @@ $(document).ready(function(){
 		$(this).parent().addClass("active");
 		var target_index = $(this).parent().index();
 		
-		from_percenage = (current_index * -33.33).toString() + "%"
-		to_percenage = (target_index * -33.33).toString() + "%"
+		from_percenage = (current_index * -33.33).toString() + "%";
+		to_percenage = (target_index * -33.33).toString() + "%";
 		var moveContent = new TimelineMax()
 			.fromTo(".main-content-container", 1, {x: from_percenage}, {x: to_percenage});
 	});
@@ -158,6 +165,24 @@ $(document).ready(function(){
 
 function reloadPage(){
 	location.reload();
+}
+
+function swipeApplications(direction){
+	var current_index = $('.bottom-nav li.active').index();
+	var target_index;
+	if (direction == "left"){
+		target_index = current_index + 1; 
+	}
+	else{
+		target_index = current_index - 1
+	}
+	console.log("target_index: " + target_index);
+	$(".bottom-nav li").removeClass("active");
+	$(".bottom-nav li").eq(target_index).addClass("active");
+	from_percenage = (current_index * -33.33).toString() + "%";
+	to_percenage = (target_index * -33.33).toString() + "%";
+	var moveContent = new TimelineMax()
+		.fromTo(".main-content-container", 1, {x: from_percenage}, {x: to_percenage});
 }
 
 
