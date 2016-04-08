@@ -628,7 +628,7 @@ hr.signature-line{
 	left: 50%;
 }
 
-@media (min-width: 758px and max-width: 1100px){
+@media (min-width: 758px) and (max-width: 1300px){
 
 section.active{
   display: block;
