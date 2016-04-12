@@ -118,7 +118,9 @@ $(document).ready(function(){
 			.set(".signature-line-container", {css: {className: "+=active"}})
 			.from(".signature-line", 1, {width: '0%'})
 			.fromTo(".sign-here", 1, {height: "0%"}, {height: "70px", opacity: 1})
-			.to(".sign-here", .5, {opacity: 0}, "+=.5");
+			.to(".sign-here", .5, {opacity: 0}, "+=.5")
+			.set(".canvas-container", {css: {className: "+=canvas-active"}})
+			.add( activateCanvas );
 			//.to(".sign-here", .5, {opacity: 0}, "+=.5");
 	});
 
@@ -126,6 +128,11 @@ $(document).ready(function(){
 		var animateEnter = new TimelineMax()
 			.fromTo(".signature-enter .clicked-enter", .25, {scale: 0}, {scale: 1})
 			.addCallback(reloadPage); 
+	});
+
+
+	$(".back-to-apps").on("click", function(){
+
 	});
 
 	// var signatureTimeline = new TimelineMax()
@@ -140,65 +147,10 @@ $(document).ready(function(){
 	// 	.from(".signature-line", 1, {width: '0%'})
 	// 	.from(".sign-here", 1, {height: "0%"})
 	// 	.to(".sign-here", .5, {opacity: 0}, "+=.5");
-
-	var can = $('#signature')[0],
-		ctx = can.getContext('2d'),
-		mousePressed = false,
-		mouseX = 0,
-		mouseY = 0;
-	ctx.strokeStyle ='#ffffff';
-	can.addEventListener('touchmove', onTouchMove, false);
-	can.addEventListener('touchstart', onTouchStart, false);
-	can.addEventListener('touchend', onMouseUp, false);
-	can.addEventListener('mousemove', onMouseMove, false);
-	can.addEventListener('mousedown', onMouseDown, false);
-	can.addEventListener('mouseup', onMouseUp, false);
-
-	function onTouchMove(event){
-		if (mousePressed) {
-			event.preventDefault();
-			mouseX = (event.targetTouches[0].pageX) - can.offsetLeft;
-			mouseY = (event.targetTouches[0].pageY) - can.offsetTop;
-			ctx.lineTo(mouseX, mouseY);
-			ctx.stroke();
-		}
-	}
-
-	function onTouchStart(event){
-		mousePressed = true;
-		mouseX = (event.targetTouches[0].pageX) - can.offsetLeft;
-		mouseY = (event.targetTouches[0].pageY) - can.offsetTop;
-		ctx.beginPath();
-		ctx.moveTo(mouseX, mouseY);
-	}
-
-	function onMouseUp(event){
-		mousePressed = false;
-	}
-
-	function onMouseMove(event) {
-		if (mousePressed) {
-			event.preventDefault();
-			mouseX = event.clientX - can.offsetLeft - 0;
-			mouseY = event.clientY - can.offsetTop - 20;
-			ctx.lineTo(mouseX, mouseY);
-			ctx.stroke();
-		}
-	}
-
-	function onMouseDown(event) {
-		mousePressed = true;
-		mouseX = event.clientX - can.offsetLeft - 10;
-		mouseY = event.clientY - can.offsetTop - 0;
-		ctx.beginPath();
-		ctx.moveTo(mouseX, mouseY);
-	}
-	// Table
-	//$('#clearsig')[0].addEventListener('click', clearSignature, false);
+	// $(".canvas-container").on("DOMSubtreeModified", function(){
+	// 	alert("this changes");
+	// });
 	
-	//function clearSignature() {
-	//	ctx.clearRect(0, 0, can.width, can.height);
-	//}
 });
 
 function reloadPage(){
@@ -252,7 +204,74 @@ function movePosIn(){
 
 
 //SIGNATURE CANVAS METHODS: 
+function activateCanvas(){
+	var can = $('#signature')[0],
+		ctx = can.getContext('2d'),
+		mousePressed = false,
+		mouseX = 0,
+		mouseY = 0;
+	// var canvas_width = $('.canvas-container').width(); 
+	// var canvas_height = $('.canvas-container').height(); 
+	// can.width = canvas_width; 
+	// can.height = canvas_height; 
+	ctx.strokeStyle ='#ffffff';
+	can.addEventListener('touchmove', onTouchMove, false);
+	can.addEventListener('touchstart', onTouchStart, false);
+	can.addEventListener('touchend', onMouseUp, false);
+	can.addEventListener('mousemove', onMouseMove, false);
+	can.addEventListener('mousedown', onMouseDown, false);
+	can.addEventListener('mouseup', onMouseUp, false);
 
+	var topOffset = $('#signature').offset().top;
+	var leftOffset = $('#signature').offset().left; 
+
+	function onTouchMove(event){
+		if (mousePressed) {
+			event.preventDefault();
+			mouseX = (event.targetTouches[0].pageX) - leftOffset;
+			mouseY = (event.targetTouches[0].pageY) - topOffset;
+			ctx.lineTo(mouseX, mouseY);
+			ctx.stroke();
+		}
+	}
+
+	function onTouchStart(event){
+		mousePressed = true;
+		mouseX = (event.targetTouches[0].pageX) - leftOffset;
+		mouseY = (event.targetTouches[0].pageY) - topOffset;
+		ctx.beginPath();
+		ctx.moveTo(mouseX, mouseY);
+	}
+
+	function onMouseUp(event){
+		mousePressed = false;
+	}
+
+	function onMouseMove(event) {
+		if (mousePressed) {
+			event.preventDefault();
+			mouseX = event.clientX - leftOffset;
+			mouseY = event.clientY - topOffset;
+			ctx.lineTo(mouseX, mouseY);
+			ctx.stroke();
+		}
+	}
+
+	function onMouseDown(event) {
+		console.log("onMouseDown")
+		mousePressed = true;
+		mouseX = event.clientX - leftOffset;
+		mouseY = event.clientY - topOffset;
+		ctx.beginPath();
+		ctx.moveTo(mouseX, mouseY);
+	}
+	// Table
+	//$('#clearsig')[0].addEventListener('click', clearSignature, false);
+	
+	//function clearSignature() {
+	//	ctx.clearRect(0, 0, can.width, can.height);
+	//}
+}
 
 
 
