@@ -143,7 +143,7 @@
             </ul>
           </div>
       </section>
-       <section class="pos-selection">
+       <section class="pos-selection active">
           <div class ="top-nav">
             <div class = "back-btn"><img src="img/back-icon.png" /></div>
             <div class = "section-title">POS</div>
@@ -236,7 +236,8 @@
             </div>
           </div>
           <div class = "signature-line-container">
-            <div class = "sign-here">
+              <canvas id="signature" width="800" height="250" style="border:1px solid #000;"></canvas>
+              <div class = "sign-here">
               <h2>Great! Just sign and we're done.</h2>
             </div>
             <hr class = "signature-line left"/><hr class = "signature-line right"/>
@@ -261,6 +262,9 @@
         $.mobile.changePage.defaults.changeHash = false;
         $.mobile.hashListeningEnabled = false;
         $.mobile.pushStateEnabled = false;
+        $.mobile.loader.prototype.options.disabled = true;
+        $.mobile.loadingMessage = false;
+        $.mobile.loading().hide();
     });
 </script> 
     <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>

@@ -141,26 +141,64 @@ $(document).ready(function(){
 	// 	.from(".sign-here", 1, {height: "0%"})
 	// 	.to(".sign-here", .5, {opacity: 0}, "+=.5");
 
-	// $(".main-content.active").mousedown(function() {
-	// 	console.log("mousedown");
- //        isDragging = false;
- //    })
- //    .mousemove(function() {
- //        isDra gging = true;
- //     })
- //    .mouseup(function() {
- //    	console.log("mouseup");
- //        var wasDragging = isDragging;
- //        isDragging = false;
- //        if (wasDragging) {
- //            var dragAnimation = new TimelineMax()
- //            	.fromTo(".main-content.first", .75, {x: "0%"}, {x: "-100%"})
- //            	.set(".main-content.first", {css:{className:'main-content first hide'}})
- //            	.set(".main-content.second", {css:{className:'main-content second active'}})
- //            	.fromTo(".main-content.second", .75, {x: "80%"}, {x: "0%"},"-=.75");
- //         	console.log("end of dragAnimation")
- //        }
- //    });
+	var can = $('#signature')[0],
+		ctx = can.getContext('2d'),
+		mousePressed = false,
+		mouseX = 0,
+		mouseY = 0;
+	ctx.strokeStyle ='#ffffff';
+	can.addEventListener('touchmove', onTouchMove, false);
+	can.addEventListener('touchstart', onTouchStart, false);
+	can.addEventListener('touchend', onMouseUp, false);
+	can.addEventListener('mousemove', onMouseMove, false);
+	can.addEventListener('mousedown', onMouseDown, false);
+	can.addEventListener('mouseup', onMouseUp, false);
+
+	function onTouchMove(event){
+		if (mousePressed) {
+			event.preventDefault();
+			mouseX = (event.targetTouches[0].pageX) - can.offsetLeft;
+			mouseY = (event.targetTouches[0].pageY) - can.offsetTop;
+			ctx.lineTo(mouseX, mouseY);
+			ctx.stroke();
+		}
+	}
+
+	function onTouchStart(event){
+		mousePressed = true;
+		mouseX = (event.targetTouches[0].pageX) - can.offsetLeft;
+		mouseY = (event.targetTouches[0].pageY) - can.offsetTop;
+		ctx.beginPath();
+		ctx.moveTo(mouseX, mouseY);
+	}
+
+	function onMouseUp(event){
+		mousePressed = false;
+	}
+
+	function onMouseMove(event) {
+		if (mousePressed) {
+			event.preventDefault();
+			mouseX = event.clientX - can.offsetLeft - 0;
+			mouseY = event.clientY - can.offsetTop - 20;
+			ctx.lineTo(mouseX, mouseY);
+			ctx.stroke();
+		}
+	}
+
+	function onMouseDown(event) {
+		mousePressed = true;
+		mouseX = event.clientX - can.offsetLeft - 10;
+		mouseY = event.clientY - can.offsetTop - 0;
+		ctx.beginPath();
+		ctx.moveTo(mouseX, mouseY);
+	}
+	// Table
+	//$('#clearsig')[0].addEventListener('click', clearSignature, false);
+	
+	//function clearSignature() {
+	//	ctx.clearRect(0, 0, can.width, can.height);
+	//}
 });
 
 function reloadPage(){
@@ -211,3 +249,10 @@ function movePosIn(){
 		.fromTo(".pos-list", .5, {scale: 0}, {scale: 1}, "-=.5")
 		.fromTo(".top-nav", .5, {y: "-100%"}, {y: "0%"}, "-=.5");			
 }
+
+
+//SIGNATURE CANVAS METHODS: 
+
+
+
+

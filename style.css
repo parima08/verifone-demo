@@ -576,9 +576,6 @@ ul.payment-icons li img{
 	display: none;
 }
 
-.signature-line-container.ative{
-	display; block;
-}
 .signature-line-container{
 	width: 80%;
 	height: 250px;
@@ -586,6 +583,15 @@ ul.payment-icons li img{
 	margin: 0 auto;
 	position: relative;
 	top: 50px;
+	display: none;
+}
+
+.signature-line-container.active{
+	display: block;
+}
+
+.signature{
+	background-color: white;
 }
 
 .sign-here{
@@ -626,6 +632,10 @@ hr.signature-line{
 
 .signature-line.right{
 	left: 50%;
+}
+
+.ui-page.ui-page-theme-a.ui-page-active{
+	min-height: 100%!important;
 }
 
 @media (min-width: 758px) and (max-width: 1300px){
