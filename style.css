@@ -24,11 +24,22 @@ section.active{
 	background:  linear-gradient(
       rgba(0,0,0,.5), 
       rgba(0,0,0,.5)
-    ), url('img/coffee-bg.png');
+    ), url('img/LV-Background.png');
 	background-size: cover;
 	background-repeat: no-repeat;
 }
 
+.lv-main-logo {
+	position: absolute;
+	width: 150px;
+	height: 200px;
+	margin: auto;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+
+}
 
 
 .top-nav{
@@ -59,6 +70,7 @@ section.active{
 	visibility: visible;
 }
 
+/*
 .calc{
 	height: 87px;
 	width: 87px;
@@ -78,10 +90,11 @@ section.active{
 	margin: auto;
 	background: url('img/calc-icon.png');
 }
+*/
 
 .logo{
-	background: url('img/verifone-logo.png');
-	width: 190px;
+	background: url('img/LV-Header-logo.png');
+	width: 300px;
 	height: 37px;
 	align-self: center;
 	display: inline-block;
@@ -91,6 +104,7 @@ section.active{
 	top: 0;
 	bottom: 0;
 	margin: auto;
+	background-repeat: no-repeat;
 }
 
 .application-display {
@@ -645,6 +659,7 @@ hr.signature-line{
 	min-height: 100%!important;
 }
 
+
 @media (min-width: 758px) and (max-width: 1300px){
 
 section.active{
@@ -661,3 +676,4 @@ section.active{
 }
 
 }
+
