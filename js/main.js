@@ -21,8 +21,8 @@ $(document).ready(function(){
 
 	video = $("#preload_video").get(0);
 	setTimeout(function () {  
-     video.get[0].play();  
- }, 100);  
+	     video.play();  
+	 }, 100);  
 
 	$(".main-content-container").on("swipeleft", function(){
 		swipeApplications("left");
