@@ -4,14 +4,10 @@
 
 // 	console.log("start is: " + start);
 // };
+var start,
+    choiceListMoveIn;
 
 $(document).ready(function(){
- 	var start = new TimelineMax()
-			.fromTo( ".top-nav", .75, {y: "-100%"}, {y: "0%"}, 0)
-			.fromTo( ".main-content", .75, {y:"100%"}, {y: "0%"}, "-=.75")
-			.fromTo(".calc", .5, {x: "-100%"}, {x: "0%"})
-			.fromTo(".bottom-nav.dots", .5, {y: "100%"}, {y: "0%"}, "-=.5");
-
 	//var posStart = new TimelineMax()
 //			.fromTo( ".top-nav", .75, {y: "-100%"}, {y: "0%"})
 	//		.fromTo(".pos-list", 1, {scale: 0}, {scale: 1}, "-=.5");
@@ -19,9 +15,13 @@ $(document).ready(function(){
 	// $(".calc").on("click", function(){
 	// 	start.reverse();
 	// });	
-	var moveOut; 
 
-	var isDragging = false;
+	var main_original_content = $('main').html();
+	var moveOut;
+
+	video = $("#preload_video").get(0);
+	video.play();
+
 	$(".main-content-container").on("swipeleft", function(){
 		swipeApplications("left");
 	});
@@ -137,15 +137,25 @@ $(document).ready(function(){
 	});
 
 	$(".back-btn").on("click", function(){
-		reloadPage();
+		reloadPageBeginning();
 	});
 
 	$(".cancel").on("click", function(){
-		reloadPage();
+		reloadPageBeginning()
 	});
 
 	$(".btn-restart").on("click", function(){
 		reloadPage();
+	});
+
+	$(".home-btn").on("click", function(){
+		reloadPage();
+	});
+
+	$(".intro-video").on("click", function(){
+		$(this).removeClass("active");
+		$('.home').addClass("active");
+		startAnimation();
 	});
 
 
@@ -175,6 +185,16 @@ $(document).ready(function(){
 
 function reloadPage(){
 	location.reload();
+}
+
+function reloadPageBeginning(){
+	$('section').removeClass("active");
+	$('.home').addClass('active');
+	$('section [style]').removeAttr('style');
+	$(".bottom-nav li").removeClass('active');
+	$(".bottom-nav li:first").addClass('active');
+	var resetApplications = new TimelineMax()
+		.to(".main-content-container", .25, {x: "0%"}, 0);
 }
 
 function loadThankYou(){
@@ -220,9 +240,15 @@ function clearProps(scene) {
 //         }
 // }
 
-
+function startAnimation(){
+	start = new TimelineMax()
+			.fromTo( ".top-nav", .75, {y: "-100%"}, {y: "0%"}, 0)
+			.fromTo( ".main-content", .75, {y:"100%"}, {y: "0%"}, "-=.75")
+			.fromTo(".calc", .5, {x: "-100%"}, {x: "0%"})
+			.fromTo(".bottom-nav.dots", .5, {y: "100%"}, {y: "0%"}, "-=.5");
+}
 function movePosIn(){
-	var choiceListMoveIn = new TimelineMax()
+	choiceListMoveIn = new TimelineMax()
 		.set("section.pos-selection", {css: {className: "+=active"}})
 		.fromTo(".pos-list", .5, {scale: 0}, {scale: 1}, "-=.5")
 		.fromTo(".top-nav", .5, {y: "-100%"}, {y: "0%"}, "-=.5");			

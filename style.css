@@ -20,13 +20,19 @@ section.active{
   overflow: hidden;
 }
 
-.home, .pos-selection, .signature-slides, .ending-thank-you{
+.intro-video, .home, .pos-selection, .signature-slides, .ending-thank-you{
 	background:  linear-gradient(
       rgba(0,0,0,.1), 
       rgba(0,0,0,.1)
     ), url('img/LV-Background.png');
 	background-size: cover;
 	background-repeat: no-repeat;
+}
+
+#preload_video{
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 .lv-main-logo {
@@ -439,7 +445,7 @@ section.active{
 	top: 0;
 	transform: scale(0);
 	background-color: rgba(255, 255, 255, .5);
-	background-color: rgba(120, 82, 43, .5);
+	/*background-color: rgba(120, 82, 43, .5);*/
 	left: 0;
 }
 
