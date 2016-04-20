@@ -20,7 +20,9 @@ $(document).ready(function(){
 	var moveOut;
 
 	video = $("#preload_video").get(0);
-	video.play();
+	setTimeout(function () {  
+     video.get[0].play();  
+ }, 100);  
 
 	$(".main-content-container").on("swipeleft", function(){
 		swipeApplications("left");
