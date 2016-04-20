@@ -7,14 +7,19 @@
 
 $(document).ready(function(){
  	var start = new TimelineMax()
-			.fromTo( ".top-nav", .75, {y: "-100%"}, {y: "0%"})
+			.fromTo( ".top-nav", .75, {y: "-100%"}, {y: "0%"}, 0)
 			.fromTo( ".main-content", .75, {y:"100%"}, {y: "0%"}, "-=.75")
 			.fromTo(".calc", .5, {x: "-100%"}, {x: "0%"})
 			.fromTo(".bottom-nav.dots", .5, {y: "100%"}, {y: "0%"}, "-=.5");
 
-	var posStart = new TimelineMax()
-			.fromTo( ".top-nav", .75, {y: "-100%"}, {y: "0%"})
-			.fromTo(".pos-list", 1, {scale: 0}, {scale: 1}, "-=.5");
+	//var posStart = new TimelineMax()
+//			.fromTo( ".top-nav", .75, {y: "-100%"}, {y: "0%"})
+	//		.fromTo(".pos-list", 1, {scale: 0}, {scale: 1}, "-=.5");
+
+	// $(".calc").on("click", function(){
+	// 	start.reverse();
+	// });	
+	var moveOut; 
 
 	var isDragging = false;
 	$(".main-content-container").on("swipeleft", function(){
@@ -40,7 +45,7 @@ $(document).ready(function(){
 
 	$(".app-button.pos").on("click", function(){
 		var active_main_content = $(this).parent().parent(".main-content");
-		var moveOut = new TimelineMax()
+		moveOut = new TimelineMax()
 			.fromTo(".clicked-obj", .25, {scale: 0}, {scale: 1})
 			.fromTo(active_main_content, .5, {scale: 1}, {scale: 0})
 			.fromTo(".bottom-nav.dots", .5, {opacity: 1}, {opacity: 0}, "-=.5")
@@ -132,7 +137,9 @@ $(document).ready(function(){
 
 
 	$(".back-to-apps").on("click", function(){
-
+		//console.log("reverse started");
+		//moveOut.play();
+		moveOut.reverse();
 	});
 
 	// var signatureTimeline = new TimelineMax()
@@ -179,12 +186,12 @@ function swipeApplications(direction){
 
 
 function clearProps(scene) {
-        var targets = scene.getChildren();
-        for (var i = 0; i <= targets.length; i++) {
-            TweenMax.set(targets[i].target.selector, {
-                clearProps: "all"
-            });
-        }
+    var targets = scene.getChildren();
+    for (var i = 0; i <= targets.length; i++) {
+        TweenMax.set(targets[i].target.selector, {
+            clearProps: "all"
+        });
+    }
 }
     
 // function clearAllProps() {
