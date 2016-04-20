@@ -22,7 +22,7 @@ $(document).ready(function(){
 	video = $("#preload_video").get(0);
 	setTimeout(function () {  
 	     video.play();  
-	 }, 100);  
+	 }, 1000);  
 
 	$(".main-content-container").on("swipeleft", function(){
 		swipeApplications("left");
