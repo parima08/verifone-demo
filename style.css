@@ -20,7 +20,7 @@ section.active{
   overflow: hidden;
 }
 
-.home, .pos-selection, .signature-slides{
+.home, .pos-selection, .signature-slides, .ending-thank-you{
 	background:  linear-gradient(
       rgba(0,0,0,.1), 
       rgba(0,0,0,.1)
@@ -51,7 +51,8 @@ section.active{
 }
 
 .main-content-container{
-	width: 300%;
+	/*width: 300%;*/
+	width: 200%;
     height: calc(100% - 87px - 40px);
     display: -webkit-flex;
     padding-right: 40px;
@@ -178,6 +179,10 @@ section.active{
 .app-title{
 	height: 30px;
 	font-size: 16px;
+}
+
+.register{
+	color: #82543A;
 }
 
 .bottom-nav{
@@ -503,20 +508,12 @@ section.active{
 .signature-instructions{
 	width: 80%;
 	height: 250px;
-	/*background-color: blue;*/
 	margin: 0 auto;
 	position: relative;
-	top: 100px;
+	top: 120px;
 }
 
-.payment-icons{
-	width: 80%;
-	margin: auto;
-	height: 120px;
-	bottom: 50px;
-	opacity: 1;
-	/*background: green;*/
-}
+
 
 .sig-text-instructions{
 	margin: 0 auto;
@@ -534,6 +531,17 @@ section.active{
 	padding: 0;
 }
 
+.payment-icons{
+	width: 80%;
+	margin: auto;
+	height: 100px;
+	bottom: 50px;
+	opacity: 1;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/*background: green;*/
+}
 
 ul.payment-icons li {
     height: 100%;
@@ -661,6 +669,55 @@ hr.signature-line{
 
 .ui-page.ui-page-theme-a.ui-page-active{
 	min-height: 100%!important;
+}
+
+.ending-thank-you{
+	background:  linear-gradient(
+      rgba(0,0,0,.5), 
+      rgba(0,0,0,.5)
+    ), url('img/LV-Background.png');
+}
+
+
+.center-ending{
+	width: 50%;
+	height: 200px;
+	position: absolute;
+	top: 0; bottom: 0; right: 0; left: 0;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around; 
+	align-items: center;
+
+}
+.vl-end-logo-container{
+	width: 70px;
+}
+
+.vl-end-logo-container img{
+	width: 100%;
+}
+.thank-you-text {
+	/*background-color: green;*/
+}
+.thank-you-text h3{
+	margin: 10px;
+	margin-bottom: 40px;
+	padding: 0;
+	font-size: 64px;
+	color: white;
+	font-weight: 300;
+}
+
+.restart-button .btn-restart{
+	border: 1px solid white;
+	padding: 15px 50px;
+	font-size: 18px;
+	font-weight: 200;
+	color: white;
+	cursor: pointer;
+	border-radius: 5px;
 }
 
 

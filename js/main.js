@@ -37,8 +37,8 @@ $(document).ready(function(){
 		$(this).parent().addClass("active");
 		var target_index = $(this).parent().index();
 		
-		from_percenage = (current_index * -33.33).toString() + "%";
-		to_percenage = (target_index * -33.33).toString() + "%";
+		from_percenage = (current_index * -50).toString() + "%";
+		to_percenage = (target_index * -50).toString() + "%";
 		var moveContent = new TimelineMax()
 			.fromTo(".main-content-container", 1, {x: from_percenage}, {x: to_percenage});
 	});
@@ -132,15 +132,28 @@ $(document).ready(function(){
 	$(".bottom-controls .signature-enter").on("click", function(){
 		var animateEnter = new TimelineMax()
 			.fromTo(".signature-enter .clicked-enter", .25, {scale: 0}, {scale: 1})
-			.addCallback(reloadPage); 
+			.addCallback(loadThankYou);
+			//.addCallback(reloadPage); 
+	});
+
+	$(".back-btn").on("click", function(){
+		reloadPage();
+	});
+
+	$(".cancel").on("click", function(){
+		reloadPage();
+	});
+
+	$(".btn-restart").on("click", function(){
+		reloadPage();
 	});
 
 
-	$(".back-to-apps").on("click", function(){
-		//console.log("reverse started");
-		//moveOut.play();
-		moveOut.reverse();
-	});
+	// $(".back-to-apps").on("click", function(){
+	// 	//console.log("reverse started");
+	// 	//moveOut.play();
+	// 	moveOut.reverse();
+	// });
 
 	// var signatureTimeline = new TimelineMax()
 	// 	.from(".swipe", .5, {width: '0%', ease:Power1.easeInOut})
@@ -164,6 +177,12 @@ function reloadPage(){
 	location.reload();
 }
 
+function loadThankYou(){
+	ending = new TimelineMax()
+		.set(".ending-thank-you", {css: {className: "+=active"}})
+		.fromTo(".ending-thank-you", .75, {opacity: 0}, {opacity: 1});
+}
+
 function swipeApplications(direction){
 	var current_index = $('.bottom-nav li.active').index();
 	var target_index;
@@ -173,13 +192,13 @@ function swipeApplications(direction){
 	else{
 		target_index = current_index - 1
 	}
-	if( (target_index > 2) || (target_index < 0)){
+	if( (target_index > 1) || (target_index < 0)){
 		return;
 	}
 	$(".bottom-nav li").removeClass("active");
 	$(".bottom-nav li").eq(target_index).addClass("active");
-	from_percenage = (current_index * -33.33).toString() + "%";
-	to_percenage = (target_index * -33.33).toString() + "%";
+	from_percenage = (current_index * -50).toString() + "%";
+	to_percenage = (target_index * -50).toString() + "%";
 	var moveContent = new TimelineMax()
 		.fromTo(".main-content-container", 1, {x: from_percenage}, {x: to_percenage});
 }
