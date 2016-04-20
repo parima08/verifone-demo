@@ -22,8 +22,8 @@ section.active{
 
 .home, .pos-selection, .signature-slides{
 	background:  linear-gradient(
-      rgba(0,0,0,.5), 
-      rgba(0,0,0,.5)
+      rgba(0,0,0,.1), 
+      rgba(0,0,0,.1)
     ), url('img/LV-Background.png');
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -142,6 +142,7 @@ section.active{
 	top: 0px;
 	/*top: 32px;*/
 	background-color: rgba(0, 168, 239, .5);
+	background-color: rgba(120, 82, 43, .5);
 }
 
 .clicked-pos-type,
@@ -153,6 +154,7 @@ section.active{
 	height: 100%;
 	top: 0;
 	background-color: rgba(0, 168, 239, .5);
+	background-color: rgba(120, 82, 43, .5);
 	transform: scale(0);
 }
 
@@ -374,7 +376,8 @@ section.active{
 }
 
 .sale-input hr{
-	background-color: rgba(0, 168, 239, .5);
+	/*background-color: rgba(0, 168, 239, .5);*/
+	background-color: #78522B;
 	width: 100%;
 	height: 2px;
 }
@@ -431,6 +434,7 @@ section.active{
 	top: 0;
 	transform: scale(0);
 	background-color: rgba(255, 255, 255, .5);
+	background-color: rgba(120, 82, 43, .5);
 	left: 0;
 }
 
