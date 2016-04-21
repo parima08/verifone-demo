@@ -20,7 +20,7 @@ section.active{
   overflow: hidden;
 }
 
-.intro-video, .home, .pos-selection, .signature-slides, .ending-thank-you{
+.intro-video, .home, .pos-selection, .signature-slides, .ending-thank-you, .intro{
 	background:  linear-gradient(
       rgba(0,0,0,.1), 
       rgba(0,0,0,.1)
@@ -726,7 +726,8 @@ hr.signature-line{
 	font-weight: 300;
 }
 
-.restart-button .btn-restart{
+.restart-button .btn-restart, 
+.btn{
 	border: 1px solid white;
 	padding: 15px 50px;
 	font-size: 18px;
@@ -734,6 +735,13 @@ hr.signature-line{
 	color: white;
 	cursor: pointer;
 	border-radius: 5px;
+}
+
+.btn{
+	width: 200px;
+	margin: 10px;
+	text-align: center;
+	background-color: rgba(0, 0, 0, .4);
 }
 
 

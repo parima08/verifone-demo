@@ -20,9 +20,7 @@ $(document).ready(function(){
 	var moveOut;
 
 	video = $("#preload_video").get(0);
-	setTimeout(function () {  
-	     video.play();  
-	 }, 1000);  
+	
 
 	$(".main-content-container").on("swipeleft", function(){
 		swipeApplications("left");
@@ -156,6 +154,16 @@ $(document).ready(function(){
 
 	$(".intro-video").on("click", function(){
 		$(this).removeClass("active");
+		$('.home').addClass("active");
+		startAnimation();
+	});
+
+	$(".idle-screen").on("click", function(){
+		$('.intro-video').addClass("active");
+		video.play();
+	});
+
+	$(".home-screen").on("click", function(){
 		$('.home').addClass("active");
 		startAnimation();
 	});
